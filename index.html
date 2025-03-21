@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Generator</h1>
+        <form id="recipeForm">
+            <div class="form-group">
+                <label for="ingredients">Ingredients (comma-separated):</label>
+                <input type="text" id="ingredients" name="ingredients">
+            </div>
+            <div class="form-group">
+                <label for="dietary_preference">Dietary Preference:</label>
+                <select id="dietary_preference" name="dietary_preference">
+                    <option value="">Any</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Gluten-Free">Gluten-Free</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="time_taken">Time Taken (e.g., "45 minutes"):</label>
+                <input type="text" id="time_taken" name="time_taken">
+            </div>
+            <div class="form-group">
+                <label for="meal_type">Meal Type:</label>
+                <select id="meal_type" name="meal_type">
+                    <option value="">Any</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                </select>
+            </div>
+            <button type="submit">Generate Recipes</button>
+        </form>
+
+        <div id="results" class="results">
+            <h2>Matching Recipes:</h2>
+            <ul id="recipeList">
+                </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
