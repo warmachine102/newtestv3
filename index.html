@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavouryAI - Culinary Creativity</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Savoury.AI</h1>
+        <nav>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#features">Features</a>
+            <a href="#generate-recipes">Generate Recipes</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About Us</a>
+            <a href="recipe-generator.html">Generate Recipes</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-image-overlay">
+            <div class="hero-content">
+                <h2>Unlock Culinary Creativity with Savoury.AI</h2>
+                <p>Simply input your ingredients and preferences, and discover delicious recipes in seconds.</p>
+                <button id="get-started-btn" class="cta-button">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+        <h2>How It Works</h2>
+        <div class="how-it-works-image">
+            <img src="https://i.imgur.com/HpzDeTs.jpg" alt="How It Works" class="how-it-works-img">
+        </div>
+        <p>Enter ingredients, select preferences, and get personalized recipes instantly.</p>
+    </section>
+
+    <section id="features" class="section">
+        <h2>Key Features</h2>
+        <div class="features-carousel">
+            <div class="carousel-slide">
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/kdiQVJA.jpg" alt="Recipe Features" class="features-img">
+                    <h3>Personalized Recipes</h3>
+                    <p>Tailored recipes based on your ingredients and preferences.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/iQgKtiG.jpg" alt="Feature 1" class="features-img">
+                    <h3>Ingredient Optimization</h3>
+                    <p>Minimize food waste by using what you have.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/GRBQiYV.jpg" alt="Feature 2" class="features-img">
+                    <h3>Diverse Culinary Options</h3>
+                    <p>Explore a wide range of cuisines and dietary styles.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/3araAHD.jpg" alt="Feature 4" class="features-img">
+                    <h3>Step-by-Step Instructions</h3>
+                    <p>Easy-to-follow recipes for all skill levels.</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-prev">❮</button>
+                <button class="carousel-next">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="generate-recipes" class="section">
+    <h2>Generate Recipes</h2>
+    <div id="recipe-generator" class="recipe-generator">
+        <img src="https://i.imgur.com/zTrZ3Zp.jpg" alt="Recipe Generation Image" class="recipe-generation-img">
+        <textarea id="ingredients-input" class="recipe-input ingredients-textarea" placeholder="Enter ingredients (e.g., chicken, rice, tomatoes)"></textarea>
+        <div class="select-wrapper">
+            <select id="cuisine-select" class="recipe-select">
+                <option value="">Select Cuisine</option>
+                <option value="indian">Indian</option>
+                <option value="italian">Italian</option>
+                <option value="chinese">Chinese</option>
+                <option value="mexican">Mexican</option>
+                <option value="continental">Continental</option>
+            </select>
+            <select id="dietary-select" class="recipe-select">
+                <option value="">Select Dietary</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non-vegetarian">Non-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-Free</option>
+            </select>
+            <select id="meal-type-select" class="recipe-select">
+                <option value="">Select Meal Type</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+            </select>
+            <select id="cooking-time-select" class="recipe-select">
+                <option value="">Select Cooking Time</option>
+                <option value="15">15 minutes or less</option>
+                <option value="30">30 minutes</option>
+                <option value="60">60 minutes</option>
+                <option value="60+">More than 60 minutes</option>
+            </select>
+            <select id="meal-attributes-select" class="recipe-select">
+                <option value="">Select Meal Attributes</option>
+                <option value="healthy">Healthy</option>
+                <option value="quick">Quick</option>
+                <option value="fancy">Fancy</option>
+                <option value="kid-friendly">Kid-Friendly</option>
+            </select>
+        </div>
+        <button id="generate-btn" class="generate-button">Generate Recipes</button>
+        <div id="recipe-results" class="recipe-results"></div>
+    </div>
+        <section id="recipe-detail" class="section" style="display:none;">
+    <div id="recipe-detail-content">
+        <h2 id="recipe-detail-title"></h2>
+        <img id="recipe-detail-image" src="" alt="recipe image" style="max-width:300px;">
+        <div id="recipe-detail-ingredients"></div>
+        <div id="recipe-detail-steps"></div>
+        <p>Estimated Cooking Time: <span id="recipe-detail-time"></span></p>
+        <div id="recipe-detail-nutrition"></div>
+        <div id="recipe-detail-tips"></div>
+    </div>
+</section>
+</section>
+    
+    <section id="testimonials" class="section">
+        <h2>Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <p>"Savoury.AI has transformed my cooking! I can now make delicious meals with whatever I have."</p>
+                <p>- Priya S.</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"As a working professional, I love how quickly I can generate recipes. It saves me so much time!"</p>
+                <p>- Rahul K.</p>
+            </div>
+            <div class="testimonial-image-container">
+                <img src="https://i.imgur.com/t551Dk7.jpg" alt="Testimonial Image" class="testimonial-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <h2>Pricing</h2>
+        <div class="pricing-container">
+            <div class="pricing-plan">
+                <div class="plan-header">
+                    <span class="icon">🍳</span>
+                    <h3>Basic</h3>
+                </div>
+                <div class="plan-content">
+                    <p>What's Included</p>
+                    <ul>
+                        <li>✔ 15 Recipe Credits per month</li>
+                        <li>✔ Recipe History & Bookmarks</li>
+                    </ul>
+                    <p class="price">Free <span>forever</span></p>
+                </div>
+            </div>
+            <div class="pricing-plan premium">
+                <div class="plan-header">
+                    <span class="icon">⭐</span>
+                    <h3>Premium</h3>
+                </div>
+                <div class="plan-content">
+                    <p>What's Included</p>
+                    <ul>
+                        <li>✔ Unlimited Recipe Credits</li>
+                        <li>✔ Advanced Dietary Filter Options (Allergies)</li>
+                        <li>✔ Exclusive Recipe Collections</li>
+                        <li>✔ Ad-Free Experience</li>
+                    </ul>
+                    <p class="price">₹199 <span>/month</span></p>
+                    <a href="#" class="learn-more">Subscribe Now ></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Savoury.AI was born from a passion for simplifying home cooking, conceived by a team of innovative students at the Indian School of Business (ISB) in Hyderabad, Telangana. Our mission is to empower individuals to effortlessly create delicious and personalized meals using the ingredients they have on hand. We believe that everyone, regardless of their culinary expertise, should have the tools to enjoy the art of cooking. Savoury.AI is our commitment to making that vision a reality, one recipe at a time.</p>
+
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: contact@savouryai.com</p>
+            <p>Phone: +91 1234567890</p>
+            <p>Location: Hyderabad, Telangana, India</p>
+        </div>
+
+        <div class="feedback-form">
+            <h3>Feedback / Contact Form</h3>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone (Optional)">
+                <input type="text" id="subject" name="subject" placeholder="Subject (Optional)">
+                <textarea id="message" name="message" placeholder="Your Message / Feedback" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="formMessage"></div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('get-started-btn').addEventListener('click', function() {
+            document.getElementById('generate-recipes').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const ingredients = document.getElementById('ingredients-input').value;
+            const cuisine = document.getElementById('cuisine-select').value;
+            const dietary = document.getElementById('dietary-select').value;
+            const mealType = document.getElementById('meal-type-select').value;
+            const cookingTime = document.getElementById('cooking-time-select').value;
+            const mealAttributes = document.getElementById('meal-attributes-select').value;
+
+            // Simulate recipe generation (replace with your actual AI call)
+            const recipes = generateMockRecipes(ingredients, cuisine, dietary, mealType, cookingTime, mealAttributes);
+            displayRecipes(recipes);
+        });
+
+        function generateMockRecipes(ingredients, cuisine, dietary, mealType, cookingTime, mealAttributes) {
+            // Replace with your AI logic
+            return [
+                {
+                    title: 'Mock Recipe 1',
+                    image: 'https://via.placeholder.com/300',
+                    ingredients: ['Ingredient A', 'Ingredient B'],
+                    steps: ['Step 1', 'Step 2'],
+                    time: '30 minutes',
+                    nutrition: 'Calories: 300',
+                    tips: 'Tip 1'
+                },
+                {
+                    title: 'Mock Recipe 2',
+                    image: 'https://via.placeholder.com/300',
+                    ingredients: ['Ingredient C', 'Ingredient D'],
+                    steps: ['Step A', 'Step B'],
+                    time: '45 minutes',
+                    nutrition: 'Calories: 450',
+                    tips: 'Tip 2'
+                }
+            ];
+        }
+
+        function displayRecipes(recipes) {
+            const resultsDiv = document.getElementById('recipe-results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (recipes.length === 0) {
+                resultsDiv.innerHTML = '<p>No recipes found.</p>';
+                return;
+            }
+
+            recipes.forEach(recipe => {
+                const recipeDiv = document.createElement('div');
+                recipeDiv.classList.add('recipe-preview');
+                recipeDiv.innerHTML = `
+                    <h3>${recipe.title}</h3>
+                    <img src="${recipe.image}" alt="${recipe.title}" style="max-width: 150px;">
+                    <button class="view-recipe-btn" data-recipe-title="${recipe.title}">View Recipe</button>
+                `;
+                resultsDiv.appendChild(recipeDiv);
+            });
+
+            // Add event listeners for view recipe buttons
+            document.querySelectorAll('.view-recipe-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const recipeTitle = this.getAttribute('data-recipe-title');
+                    const recipe = recipes.find(r => r.title === recipeTitle);
+                    if (recipe) {
+                        displayRecipeDetails(recipe);
+                    }
+                });
+            });
+        }
+
+function displayRecipeDetails(recipe) {
+    const recipeDetailContent = document.getElementById('recipe-detail-content');
+    if (!recipeDetailContent) {
+        console.error("Recipe detail content container not found.");
+        return;
+    }
+
+    document.getElementById('recipe-detail-title').textContent = recipe.title;
+    document.getElementById('recipe-detail-image').src = recipe.image;
+    document.getElementById('recipe-detail-ingredients').innerHTML = '<strong>Ingredients:</strong> ' + recipe.ingredients.join(', ');
+    document.getElementById('recipe-detail-steps').innerHTML = '<strong>Steps:</strong> ' + recipe.steps.join('<br>');
+    document.getElementById('recipe-detail-time').textContent = recipe.time;
+    document.getElementById('recipe-detail-nutrition').innerHTML = '<strong>Nutrition:</strong> ' + recipe.nutrition;
+    document.getElementById('recipe-detail-tips').innerHTML = '<strong>Tips:</strong> ' + recipe.tips;
+
+    document.getElementById('recipe-detail').style.display = 'block';
+    document.getElementById('recipe-detail').scrollIntoView({ behavior: 'smooth' });
+}
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselSlide = document.querySelector('.carousel-slide');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+
+            let counter = 0;
+            const slideWidth = carouselItems[0].clientWidth;
+
+            carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+
+            // Next Button Click
+            nextButton.addEventListener('click', () => {
+                if (counter >= carouselItems.length - 1) return;
+                carouselSlide.style.transition = "transform 0.4s ease-in-out";
+                counter++;
+                carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+            });
+
+            // Prev Button Click
+            prevButton.addEventListener('click', () => {
+                if (counter <= 0) return;
+                carouselSlide.style.transition = "transform 0.4s ease-in-out";
+                counter--;
+                carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+            });
+
+            carouselSlide.addEventListener('transitionend', () => {
+                if (carouselItems[counter].id === 'lastClone') {
+                    carouselSlide.style.transition = "none";
+                    counter = carouselItems.length - 2;
+                    carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+                }
+                if (carouselItems[counter].id === 'firstClone') {
+                    carouselSlide.style.transition = "none";
+                    counter = carouselItems.length - counter;
+                    carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+                }
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Basic form validation (you can add more robust validation)
+            if (!name || !email || !message) {
+                document.getElementById('formMessage').textContent = 'Please fill in all required fields.';
+                return;
+            }
+
+            // Simulate form submission (replace with your backend logic)
+            console.log('Form submitted:', { name, email, message });
+            document.getElementById('formMessage').textContent = 'Thank you for your feedback!';
+
+            // Clear form fields after submission
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('subject').value = '';
+            document.getElementById('message').value = '';
+        });
+
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
