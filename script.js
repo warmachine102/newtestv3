@@ -1,180 +1,133 @@
-/* style.css */
-body {
-    font-family: 'Arial', sans-serif; /* Changed default font */
-    margin: 0; /* Reset default body margin */
-    background-color: #f8f9fa; /* Light background */
-    color: #333;
-    line-height: 1.6;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const recipeForm = document.getElementById('recipeForm');
+    const recipeList = document.getElementById('recipeList');
+    const resultsDiv = document.getElementById('results');
+    const apiKey = '22379668fc0642c1b19cc08530434133'; // **Your Spoonacular API Key**
+    const baseUrl = 'https://api.spoonacular.com/recipes/complexSearch';
 
-.container {
-    max-width: 960px; /* Slightly wider container */
-    margin: 40px auto; /* Center container with more top/bottom margin */
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
+    recipeForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
-h1, h2, h3, h4 {
-    color: #e44d26; /* A food-related color */
-    font-weight: bold;
-    margin-bottom: 15px;
-}
+        const ingredientsInput = document.getElementById('ingredients').value;
+        const dietaryPreference = document.getElementById('dietary_preference').value;
+        const timeTakenInput = document.getElementById('time_taken').value;
+        const mealType = document.getElementById('meal_type').value;
 
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        let ingredients = ingredientsInput.split(',').map(ing => ing.trim()).filter(ing => ing !== '');
+        const query = ingredients.join(', '); // Spoonacular uses 'query' for ingredients
 
-.form-group {
-    margin-bottom: 20px;
-}
+        let apiUrl = `${baseUrl}?apiKey=${apiKey}`;
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
-}
+        if (query) {
+            apiUrl += `&query=${encodeURIComponent(query)}`;
+        }
 
-input[type="text"],
-select {
-    width: calc(100% - 22px); /* Adjust width for padding and border */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
+        if (dietaryPreference) {
+            apiUrl += `&diet=${encodeURIComponent(dietaryPreference)}`;
+        }
 
-button[type="submit"] {
-    background-color: #e44d26; /* Consistent button color */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-}
+        if (timeTakenInput) {
+            // Spoonacular uses 'maxReadyTime' in minutes
+            const timeInMinutes = parseInt(timeTakenInput.replace(/\D/g, '')); // Extract numbers
+            if (!isNaN(timeInMinutes)) {
+                apiUrl += `&maxReadyTime=${timeInMinutes}`;
+            }
+        }
 
-button[type="submit"]:hover {
-    background-color: #d13d1a;
-}
+        if (mealType) {
+            apiUrl += `&type=${encodeURIComponent(mealType.toLowerCase())}`; // Spoonacular uses lowercase
+        }
 
-.results {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
+        // Add other parameters as needed (e.g., number of results)
+        apiUrl += `&number=10`; // Request up to 10 results
 
-.results h2 {
-    color: #e44d26;
-    margin-top: 0;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayRecipes(data.results); // Spoonacular's complexSearch returns results in an array
+            })
+            .catch(error => {
+                console.error('Error fetching recipes:', error);
+                recipeList.innerHTML = '<p class="error">Failed to fetch recipes from Spoonacular. Please check your API key and try again later.</p>';
+                resultsDiv.style.display = 'block';
+            });
 
-.results ul {
-    list-style: none;
-    padding: 0;
-}
+        resultsDiv.style.display = 'block';
+        recipeList.innerHTML = '<p>Searching for recipes from Spoonacular...</p>';
+    });
 
-.results li {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-}
+    function displayRecipes(recipes) {
+        recipeList.innerHTML = ''; // Clear previous results
 
-.results li:last-child {
-    border-bottom: none;
-}
+        if (recipes && recipes.length > 0) {
+            recipes.forEach(recipe => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <h3>${recipe.title}</h3>
+                    <img src="${recipe.image}" alt="${recipe.title}" width="200">
+                    <p><strong>Ready in:</strong> ${recipe.readyInMinutes} minutes</p>
+                    <p><strong>Servings:</strong> ${recipe.servings}</p>
+                    <button class="view-recipe" data-id="${recipe.id}">View Recipe Details</button>
+                    <hr>
+                `;
+                recipeList.appendChild(listItem);
+            });
 
-.results li h3 {
-    color: #333;
-    margin-top: 0;
-}
+            // Add event listeners to the "View Recipe Details" buttons
+            const viewButtons = document.querySelectorAll('.view-recipe');
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const recipeId = this.getAttribute('data-id');
+                    fetchRecipeDetails(recipeId);
+                });
+            });
 
-.results li img {
-    max-width: 100%; /* Make images responsive */
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
+        } else {
+            recipeList.innerHTML = '<p>No recipes found matching your criteria on Spoonacular.</p>';
+        }
+    }
 
-.results li p {
-    margin-bottom: 10px;
-    color: #666;
-}
+    function fetchRecipeDetails(recipeId) {
+        const detailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}&includeNutrition=false`;
+        recipeList.innerHTML = '<p>Fetching recipe details...</p>';
 
-.results li .view-recipe {
-    background-color: #007bff; /* Different button color for details */
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
+        fetch(detailsUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(recipeDetails => {
+                displayRecipeDetails(recipeDetails);
+            })
+            .catch(error => {
+                console.error('Error fetching recipe details:', error);
+                recipeList.innerHTML = '<p class="error">Failed to fetch details for this recipe.</p>';
+            });
+    }
 
-.results li .view-recipe:hover {
-    background-color: #0056b3;
-}
-
-.results li hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 20px 0;
-}
-
-.results li hr:last-child {
-    display: none;
-}
-
-.results li div { /* Style for recipe details */
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.results li div h4 {
-    color: #555;
-    margin-top: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-}
-
-.results li div ul {
-    padding-left: 20px;
-}
-
-.results li div ol {
-    padding-left: 20px;
-}
-
-.results li div button {
-    background-color: #6c757d; /* Back button color */
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-top: 15px;
-}
-
-.results li div button:hover {
-    background-color: #5a6268;
-}
-
-.error {
-    color: red;
-    font-weight: bold;
-}
+    function displayRecipeDetails(recipe) {
+        recipeList.innerHTML = ''; // Clear the list
+        const recipeDetailsDiv = document.createElement('div');
+        recipeDetailsDiv.innerHTML = `
+            <h3>${recipe.title}</h3>
+            <img src="${recipe.image}" alt="${recipe.title}" width="300">
+            <p><strong>Ready in:</strong> ${recipe.readyInMinutes} minutes</p>
+            <p><strong>Servings:</strong> ${recipe.servings}</p>
+            <h4>Ingredients:</h4>
+            <ul>
+                ${recipe.extendedIngredients.map(ing => `<li>${ing.original}</li>`).join('')}
+            </ul>
+            <h4>Instructions:</h4>
+            ${recipe.instructions ? `<p>${recipe.instructions}</p>` : (recipe.analyzedInstructions && recipe.analyzedInstructions.length > 0 ? `<ol>${recipe.analyzedInstructions[0].steps.map(step => `<li>${step.step}</li>`).join('')}</ol>` : '<p>Instructions not available.</p>')}
+            <button onclick="document.getElementById('results').scrollIntoView({ behavior: 'smooth' });">Back to Search Results</button>
+        `;
+        recipeList.appendChild(recipeDetailsDiv);
+    }
+});
