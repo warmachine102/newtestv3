@@ -207,10 +207,6 @@ nav a:hover {
 .feature-list {
     display: none; /* Hide the feature list */
 }
-/* ... (your existing CSS) ... */
-
-
-
 .testimonial-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -371,8 +367,6 @@ nav a:hover {
     border-radius: 8px;
 }
 
-/* ... (your existing CSS) ... */
-
 #about p:first-of-type {
     background-color: #f9f9f9;
     padding: 2rem;
@@ -412,6 +406,7 @@ nav a:hover {
     margin-right: 10px;
     background-size: cover;
 }
+
 
 .contact-info p:nth-child(2)::before {
     background-image: url('data:image/svg+xml,...'); /* Email icon SVG */
