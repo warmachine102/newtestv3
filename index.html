@@ -1,10 +1,13 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SavouryAI - Culinary Creativity</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-</head><body>
+</head>
+<body>
     <header>
         <h1 class="logo">Savoury.AI</h1>
         <nav>
@@ -67,6 +70,65 @@
         </div>
     </section>
 
+    <section id="generate-recipes" class="section">
+    <h2>Generate Recipes</h2>
+    <div id="recipe-generator" class="recipe-generator">
+        <img src="https://i.imgur.com/zTrZ3Zp.jpg" alt="Recipe Generation Image" class="recipe-generation-img">
+        <textarea id="ingredients-input" class="recipe-input ingredients-textarea" placeholder="Enter ingredients (e.g., chicken, rice, tomatoes)"></textarea>
+        <div class="select-wrapper">
+            <select id="cuisine-select" class="recipe-select">
+                <option value="">Select Cuisine</option>
+                <option value="indian">Indian</option>
+                <option value="italian">Italian</option>
+                <option value="chinese">Chinese</option>
+                <option value="mexican">Mexican</option>
+                <option value="continental">Continental</option>
+            </select>
+            <select id="dietary-select" class="recipe-select">
+                <option value="">Select Dietary</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non-vegetarian">Non-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-Free</option>
+            </select>
+            <select id="meal-type-select" class="recipe-select">
+                <option value="">Select Meal Type</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+            </select>
+            <select id="cooking-time-select" class="recipe-select">
+                <option value="">Select Cooking Time</option>
+                <option value="15">15 minutes or less</option>
+                <option value="30">30 minutes</option>
+                <option value="60">60 minutes</option>
+                <option value="60+">More than 60 minutes</option>
+            </select>
+            <select id="meal-attributes-select" class="recipe-select">
+                <option value="">Select Meal Attributes</option>
+                <option value="healthy">Healthy</option>
+                <option value="quick">Quick</option>
+                <option value="fancy">Fancy</option>
+                <option value="kid-friendly">Kid-Friendly</option>
+            </select>
+        </div>
+        <button id="generate-btn" class="generate-button">Generate Recipes</button>
+        <div id="recipe-results" class="recipe-results"></div>
+    </div>
+        <section id="recipe-detail" class="section" style="display:none;">
+    <div id="recipe-detail-content">
+        <h2 id="recipe-detail-title"></h2>
+        <img id="recipe-detail-image" src="" alt="recipe image" style="max-width:300px;">
+        <div id="recipe-detail-ingredients"></div>
+        <div id="recipe-detail-steps"></div>
+        <p>Estimated Cooking Time: <span id="recipe-detail-time"></span></p>
+        <div id="recipe-detail-nutrition"></div>
+        <div id="recipe-detail-tips"></div>
+    </div>
+</section>
+</section>
+    
     <section id="testimonials" class="section">
         <h2>Testimonials</h2>
         <div class="testimonial-grid">
@@ -322,4 +384,5 @@ function displayRecipeDetails(recipe) {
             observer.observe(section);
         });
     </script>
-</body></html>
+</body>
+</html>
