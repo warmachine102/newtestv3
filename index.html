@@ -74,8 +74,18 @@
     <h2>Generate Recipes</h2>
     <div id="recipe-generator" class="recipe-generator">
         <img src="https://i.imgur.com/zTrZ3Zp.jpg" alt="Recipe Generation Image" class="recipe-generation-img">
+        <textarea id="ingredients-input" class="recipe-input ingredients-textarea" placeholder="Enter ingredients (e.g., chicken, rice, tomatoes)"></textarea>
         <div class="select-wrapper">
+            <select id="cuisine-select" class="recipe-select">
+                <option value="">Select Cuisine</option>
+                <option value="indian">Indian</option>
+                <option value="italian">Italian</option>
+                <option value="chinese">Chinese</option>
+                <option value="mexican">Mexican</option>
+                <option value="continental">Continental</option>
+            </select> 
         </div>
+        <button id="generate-btn" class="generate-button">Generate Recipes</button>
         <div id="recipe-results" class="recipe-results"></div>
     </div>
 </section>
