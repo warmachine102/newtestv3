@@ -1,100 +1,100 @@
 /* style.css */
 body {
-    font-family: 'Open Sans', sans-serif; /* Using a more modern and readable font */
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
-    background-color: #f4f7f6; /* A very light, off-white background */
-    color: #4a4a4a; /* Dark gray for better readability */
-    line-height: 1.7; /* Slightly increased line height for better readability */
+    background-color: #f4f7f6;
+    color: #4a4a4a;
+    line-height: 1.7;
 }
 
 .container {
     max-width: 960px;
-    margin: 50px auto; /* Increased top/bottom margin */
+    margin: 50px auto;
     background-color: #fff;
-    padding: 40px; /* Increased padding */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* More pronounced, softer shadow */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2, h3, h4 {
-    color: #2e8b57; /* A nice shade of sea green, similar to your previous green */
-    font-weight: 700; /* Stronger bold */
-    margin-bottom: 20px; /* More space below headings */
+    color: #2e8b57; /* Sea green */
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 2.5em; /* Slightly larger main heading */
-    color: #3cb371; /* A slightly lighter shade of green for the main heading */
+    font-size: 2.5em;
+    color: #3cb371; /* Light sea green */
 }
 
 .form-group {
-    margin-bottom: 25px; /* More spacing between form elements */
+    margin-bottom: 25px;
 }
 
 label {
     display: block;
     margin-bottom: 10px;
-    font-weight: 600; /* Slightly bolder label */
+    font-weight: 600;
     color: #555;
 }
 
 input[type="text"],
 select {
     width: calc(100% - 24px);
-    padding: 12px; /* Increased padding */
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 6px; /* More rounded input fields */
+    border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
-    transition: border-color 0.3s ease; /* Smooth border transition on focus */
+    transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
 select:focus {
-    border-color: #3cb371; /* Green border on focus */
-    outline: none; /* Remove default focus outline */
-    box-shadow: 0 0 5px rgba(60, 179, 113, 0.3); /* Subtle green focus shadow */
+    border-color: #3cb371;
+    outline: none;
+    box-shadow: 0 0 5px rgba(60, 179, 113, 0.3);
 }
 
 button[type="submit"] {
-    background-color: #3cb371; /* Primary green color for submit button */
+    background-color: #3cb371; /* Light sea green */
     color: white;
-    padding: 14px 28px; /* Slightly larger button */
+    padding: 14px 28px;
     border: none;
-    border-radius: 8px; /* More rounded button */
+    border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
-    font-weight: 500; /* Slightly lighter bold */
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease; /* More transitions */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More noticeable shadow */
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 button[type="submit"]:hover {
-    background-color: #2e8b57; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    background-color: #2e8b57; /* Sea green */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 button[type="submit"]:active {
-    background-color: #226641; /* Even darker green when active */
-    transform: translateY(0); /* Reset transform when active */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Smaller shadow when active */
+    background-color: #226641; /* Darker sea green */
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .results {
     margin-top: 40px;
     padding: 30px;
-    border: 1px solid #e0eee0; /* Light green border */
+    border: 1px solid #e0eee0;
     border-radius: 12px;
-    background-color: #f0fff0; /* Very light green background */
+    background-color: #f0fff0;
 }
 
 .results h2 {
-    color: #3cb371; /* Green heading for results */
+    color: #3cb371; /* Light sea green */
     margin-top: 0;
-    border-bottom: 2px solid #e0eee0; /* Light green border */
+    border-bottom: 2px solid #e0eee0;
     padding-bottom: 15px;
     margin-bottom: 30px;
     font-size: 2em;
@@ -108,7 +108,7 @@ button[type="submit"]:active {
 .results li {
     margin-bottom: 35px;
     padding-bottom: 25px;
-    border-bottom: 1px solid #e0eee0; /* Light green border */
+    border-bottom: 1px solid #e0eee0;
 }
 
 .results li:last-child {
@@ -125,9 +125,9 @@ button[type="submit"]:active {
 .results li img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px; /* Rounded image corners */
+    border-radius: 8px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Subtle image shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 .results li p {
@@ -137,7 +137,7 @@ button[type="submit"]:active {
 }
 
 .results li .view-recipe {
-    background-color: #5cb85c; /* Another shade of green for details button */
+    background-color: #5cb85c; /* Medium sea green */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -148,13 +148,13 @@ button[type="submit"]:active {
 }
 
 .results li .view-recipe:hover {
-    background-color: #4cae4c;
+    background-color: #4cae4c; /* Slightly darker medium sea green */
     transform: translateY(-1px);
 }
 
 .results li hr {
     border: none;
-    border-top: 1px solid #d3d3d3; /* Light gray for separation */
+    border-top: 1px solid #d3d3d3;
     margin: 25px 0;
 }
 
@@ -164,7 +164,7 @@ button[type="submit"]:active {
 
 .results li div { /* Style for recipe details */
     padding: 20px;
-    background-color: #f9f9f9; /* Very light gray for details background */
+    background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin-top: 15px;
@@ -173,13 +173,13 @@ button[type="submit"]:active {
 .results li div h4 {
     color: #555;
     margin-top: 20px;
-    border-bottom: 1px solid #e0eee0; /* Light green border */
+    border-bottom: 1px solid #e0eee0;
     padding-bottom: 8px;
 }
 
 .results li div ul {
     padding-left: 25px;
-    list-style-type: disc; /* Use disc bullets */
+    list-style-type: disc;
 }
 
 .results li div ol {
@@ -187,7 +187,7 @@ button[type="submit"]:active {
 }
 
 .results li div button {
-    background-color: #6c757d; /* Gray for back button */
+    background-color: #6c757d; /* Gray for back button - this was intentional */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -204,7 +204,7 @@ button[type="submit"]:active {
 }
 
 .error {
-    color: #dc3545; /* Standard red for errors */
+    color: #dc3545; /* Standard red for errors - this was intentional */
     font-weight: bold;
     margin-top: 10px;
 }
