@@ -208,3 +208,32 @@ button[type="submit"]:active {
     font-weight: bold;
     margin-top: 10px;
 }
+
+/* Style for the homepage button */
+.homepage-button {
+    display: inline-block;
+    padding: 10px 20px; /* Slightly smaller padding than the main button */
+    font-size: 16px;
+    font-weight: 500; /* Less bold than the main button */
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #5cb85c; /* A slightly different shade of green */
+    border: none;
+    border-radius: 6px; /* Slightly less rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+.homepage-button:hover {
+    background-color: #4cae4c;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-button:active {
+    background-color: #3d8b3d;
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
